@@ -1,3 +1,4 @@
+[#ftl]
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -7,6 +8,11 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-    <h1>Tady bude můj blog…</h1>
+    <h1>Můj blog</h1>
+    [#list posts.content as post]
+            <a href="/post/${post.slug}"><h2>${post.title}</h2></a>
+            <p>Autor: ${post.author}, Datum: ${post.published} </p>
+            ${post.perex?no_esc}
+    [/#list]
 </body>
 </html>
